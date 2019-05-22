@@ -1,6 +1,7 @@
 function bubbleSort(array) {
   let sorted = false;
   while (sorted === false) {
+    sorted = true;
     for (let i = 0; i < array.length - 1; i++) {
       let current = array[i];
       let next = array[i + 1];
@@ -9,7 +10,6 @@ function bubbleSort(array) {
         array[i] = next;
         array[i + 1] = current;
       }
-      sorted = true;
     }
   }
   return array;
