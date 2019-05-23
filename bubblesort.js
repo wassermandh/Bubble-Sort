@@ -1,3 +1,9 @@
+function swap(array, i, current, next) {
+  array[i] = next;
+  array[i + 1] = current;
+  return array;
+}
+
 function bubbleSort(array) {
   let sorted = false;
   while (sorted === false) {
@@ -7,8 +13,7 @@ function bubbleSort(array) {
       let next = array[i + 1];
       if (current > next) {
         sorted = false;
-        array[i] = next;
-        array[i + 1] = current;
+        array = swap(array, i, current, next);
       }
     }
   }

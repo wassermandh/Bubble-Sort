@@ -1,6 +1,13 @@
 describe('Bubble Sort', function() {
+  beforeEach(function() {
+    spyOn(window, 'swap').and.callThrough();
+  });
+  afterEach(function() {
+    window.swap.calls.reset();
+  });
   it('handles an empty array', function() {
     expect(bubbleSort([])).toEqual([]);
+    expect(window.swap.calls.count()).toEqual(0);
   });
   it('returns an array', function() {
     expect(Array.isArray(bubbleSort([-5, 2, 4, 8, 4]))).toEqual(true);
