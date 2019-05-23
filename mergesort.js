@@ -32,12 +32,12 @@ function merge(nestedArray) {
 }
 
 function mergeSort(array) {
-  if (array.length > 1) {
-    let splitArray = split(array);
-
-    let merged = merge(splitArray);
-    return mergeSort(merged);
-  } else {
+  if (array.length < 2) {
     return array;
   }
+  const [firstHalf, secondHalf] = split(array);
+  const subLeft = mergeSort(firstHalf);
+  const subRight = mergeSort(secondHalf);
+
+  return merge([subLeft, subRight]);
 }
